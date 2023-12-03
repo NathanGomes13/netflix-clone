@@ -1,0 +1,116 @@
+:root{
+    --hover-grey: #e5e5e5;
+}
+html{
+    overflow: hidden;
+}
+body{
+    &::before{
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 68px;
+        background-image: linear-gradient(180deg,rgba(0,0,0,.7) 10%,transparent);
+        z-index: 9999;
+    }
+}
+main{
+    height: 100svh;
+    .container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100%;
+        justify-content: center;
+        h3{
+            font-size: clamp(30px, 3.5vw, 40px);
+            font-weight: unset;
+            margin: 0.67em 0;
+            text-align: center;
+        }
+        .profiles{
+            display: flex;
+            margin: .5em 0;
+            .profile{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                min-width: 84px;
+                width: 11vw;
+                max-width: 200px;
+                &:hover{
+                    span{
+                        color: var(--hover-grey);
+                    }
+                    &:last-child #plus{
+                        background-color: var(--hover-grey);
+                    }
+                }
+                &:not(:last-child){
+                    &:hover{
+                        img{
+                            border: 0.3em solid var(--hover-grey);
+                        }
+                    }
+                    margin: 0 2vw 0 0;
+                }
+                img{
+                    border: 0.3em solid transparent;
+                    border-radius: 8px;
+                    width: 100%;
+                    aspect-ratio: 1/1;
+                    max-width: 200px;
+                }
+                span{
+                    color: grey;
+                    display: block;
+                    font-size: clamp(12px, 1.3vw, 20px);
+                    line-height: 1.2em;
+                    margin: 0.6em 0;
+                    min-height: 1.8em;
+                    text-align: center;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    overflow: hidden;
+                }
+                &.add-perfil{
+                    #plus{
+                        aspect-ratio: 1/1;
+                        border-radius: 8px;
+                        max-width: 200px;
+                        svg{
+                            position: relative;
+                            left: 50%;
+                            top: 50%;
+                            transform: translate(-50%, -50%);
+                            width: 65%;
+                            aspect-ratio: 1/1;
+                            path{
+                                fill: grey;
+                            }
+                        }
+                    }
+                }
+                @media (min-width: 1666px){
+                    &:not(:last-child){
+                        margin: 0 2.6rem 0 0;
+                    }
+                    span{
+                        font-size: 24px;
+                    }
+                }
+            }
+        }
+        button{
+            background-color: transparent;
+            border: 1px solid grey;
+            color: grey;
+            cursor: not-allowed;
+            font-size: clamp(12px, 1.2vw, 20px);
+            margin: 2em 0 1em;
+            padding: 0.33em 1.5em;
+        }
+    }
+}
